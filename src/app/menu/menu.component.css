@@ -1,0 +1,31 @@
+
+        /* Reset some default styles */
+        body, ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            
+        }
+
+        /* Style for the menu container */
+        .menu-container {
+            display: flex; /* Use flexbox to arrange items horizontally */
+            background-color: 333333; /* Background color for the menu bar */
+        }
+
+        /* Style for each menu item */
+        .menu-item {
+            flex: 1; /* Distribute available space equally among menu items */
+            text-align: center;
+            padding: 5px;
+            color: #fff;            
+            text-decoration: none;
+            border-right: solid #555555;
+            height:max-content /* Border between menu items */
+        }
+
+        /* Remove the border from the last menu item */
+        .menu-item:last-child {
+            border-right: none;
+        }
+    

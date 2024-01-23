@@ -1,0 +1,86 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"
+/>
+
+
+<div class="container">
+  <div
+    style="margin-top: 50px"
+    class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+  >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title">Log In</div>
+      </div>
+      <div style="padding-top: 30px" class="panel-body">
+        <p class="alert alert-danger" *ngIf="msg">
+          {{msg}}
+        </p>
+        <form [formGroup]="loginForm" (submit)="doLogin()">
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              type="text"
+              class="form-control"
+              required
+              placeholder="Enter your username"
+              formControlName="name"
+            />
+          </div>
+          <p
+            class="alert alert-danger"
+            *ngIf="userNameCtrl.touched && userNameCtrl.invalid"
+          >
+            Enter username!
+          </p>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-lock"></i
+            ></span>
+
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <p
+            class="alert alert-danger"
+            *ngIf="
+              passwordCtrl.touched &&
+              passwordCtrl.invalid
+            "
+          >
+            Enter password!
+          </p>
+          <div style="margin-top: 10px" class="form-group">
+            <!-- Button -->
+            <div class="col-sm-12">
+              <input
+                type="submit"
+                [disabled]="loginForm.invalid"
+                class="btn btn-success"
+                value="Login"
+              />
+              &nbsp;
+            </div>
+          </div>
+        </form>
+        <br />
+        <br /><br />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer" style="margin: auto">
+  <p style="text-align: center">Copyright &copy; 2024 | All Rights Reserved.</p>
+</div>

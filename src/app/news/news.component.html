@@ -1,0 +1,99 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"
+/>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">HTTP App</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active" style="color: white; padding: 10px">
+        <a>Welcome {{ userName }}</a>
+      </li>
+      <li style="color: white; padding: 10px">
+        <a routerLink="/weather">Weather</a>
+      </li>
+
+      <li style="color: white; padding: 10px"><a routerLink="/">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div
+    style="margin-top: 50px"
+    class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+  >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title text-center">News</div>
+      </div>
+      <div style="padding-top: 30px" class="panel-body">
+        <img
+          src="assets/images/news.jpg"
+          alt="news"
+          style="
+            width: 200px;
+            height: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+          "
+        />
+        <br />
+        <input
+          type="text"
+          style="width: 100%; padding: 10px"
+          placeholder="Enter two letter country code"
+          [(ngModel)]="country"
+          (blur)="doCheck(country)"
+          required
+        /><br />
+        <button *ngIf = "msg.length>0" class = "btn btn-alert" style="width: 100%; padding: 10px">
+        {{msg}}
+        </button><br>
+        <select
+          
+          name="newscat"
+          (change)="doCatSelect(country, $event)"
+          style="width: 100%; padding: 10px"
+        >
+          <option value="select" selected>Select Category</option>
+          <option value="all">All</option>
+          <option value="business">Business</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="health">Health</option>
+          <option value="science">Science</option>
+          <option value="sports">Sports</option>
+          <option value="technology">Technology</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div *ngFor="let news of newsgroup">
+    
+    <div class="col-md-3 newstab">
+      <img src={{news.urlToImage}} class="img-responsive" />
+      <h6 style="font-weight: 900">{{news.title}}</h6>
+      <p>{{news.description}}</p>
+      <hr />
+      <a href="{{news.url}}" target="_blank"
+        ><button type="button" class="btn-success">Read More...</button>
+      </a>
+    </div>
+  </div>
+
+
+</div>
+
+<br /><br /><br /><br />
+
+<div class="footer" style="margin: auto">
+  <p style="text-align: center">Copyright &copy; 2024 | All Rights Reserved.</p>
+</div>

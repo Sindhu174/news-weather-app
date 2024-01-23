@@ -1,0 +1,83 @@
+<link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+  crossorigin="anonymous"
+/>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">HTTP App</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li style="color: white; padding: 10px">
+        <a>Welcome {{ userName }}</a>
+      </li>
+
+      <li style="color: white; padding: 10px">
+        <a routerLink="/news">News</a>
+      </li>
+
+      <li style="color: white; padding: 10px"><a routerLink="/">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <div
+    style="margin-top: 50px"
+    class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"
+  >
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <div class="panel-title text-center">Weather</div>
+      </div>
+      <div style="padding-top: 30px" class="panel-body">
+        <img
+          src="assets/images/weather.jpg"
+          alt="news"
+          style="
+            width: 200px;
+            height: 100px;
+            margin-right: auto;
+            margin-left: auto;
+            display: block;
+          "
+        />
+        <br />
+
+        <input
+          type="text"
+          style="width: 100%; padding: 10px"
+          placeholder="Search the city"
+          [(ngModel)]=city
+        />
+        <br /><br />
+        <button
+          type="submit"
+          (click)="cityDetails(city)"
+          class="btn-success"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+    <div *ngIf="!status">
+      City : {{ cityName }} <br /><br />
+      Country : {{countryName}}
+      <br /><br />
+      Temperature : {{temperature}}
+      <br /><br />
+      Humidity : {{humidity}}
+    </div>
+    <div *ngIf="status" style="text-align: center;">
+      City name not found!!!
+
+    </div>
+    <br /><br /><br /><br /><br /><br /><br />
+  </div>
+</div>
+
+<div class="footer" style="margin: auto">
+  <p style="text-align: center">Copyright 2024 | All Rights Reserved.</p>
+</div>
